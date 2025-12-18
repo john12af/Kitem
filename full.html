@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Feed</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+}
+body{
+  margin:0;
+  background:#f1e9df;
+}
+.feed{
+  max-width:420px;
+  margin:auto;
+  padding-bottom:80px;
+}
+.header{
+  position:sticky;
+  top:0;
+  background:#faf6f1;
+  padding:14px 16px;
+  font-weight:700;
+  font-size:18px;
+  border-bottom:1px solid #ddd;
+}
+.post{
+  background:#faf6f1;
+  margin:12px;
+  border-radius:22px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  overflow:hidden;
+}
+.post-header{
+  display:flex;
+  align-items:center;
+  padding:12px;
+}
+.avatar{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#000;
+  margin-right:10px;
+}
+.username{
+  font-weight:600;
+}
+.post-media{
+  width:100%;
+  height:280px;
+  background:#ddd;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  color:#555;
+}
+.post-actions{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 14px;
+}
+.actions-left button{
+  margin-right:12px;
+}
+button{
+  background:none;
+  border:none;
+  font-size:18px;
+  cursor:pointer;
+}
+.likes{
+  padding:0 14px;
+  font-weight:600;
+  font-size:14px;
+}
+.caption{
+  padding:6px 14px;
+  font-size:14px;
+}
+.time{
+  padding:0 14px 12px;
+  font-size:12px;
+  color:#777;
+}
+.nav{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  max-width:420px;
+  background:#faf6f1;
+  display:flex;
+  justify-content:space-around;
+  padding:12px 0;
+  border-top:1px solid #ddd;
+}
+.nav button{
+  font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="feed">
+
+  <div class="header">Home</div>
+
+  <!-- POST 1 -->
+  <div class="post">
+    <div class="post-header">
+      <div class="avatar"></div>
+      <div class="username">john_doe</div>
+    </div>
+    <div class="post-media">Image / Video</div>
+    <div class="post-actions">
+      <div class="actions-left">
+        <button onclick="likePost(0)">❤️</button>
+        <button>💬</button>
+        <button>📤</button>
+      </div>
+      <button>🔖</button>
+    </div>
+    <div class="likes" id="likes0">0 likes</div>
+    <div class="caption"><b>john_doe</b> First post on this platform 🔥</div>
+    <div class="time">2 minutes ago</div>
+  </div>
+
+  <!-- POST 2 -->
+  <div class="post">
+    <div class="post-header">
+      <div class="avatar"></div>
+      <div class="username">creator_x</div>
+    </div>
+    <div class="post-media">Video Content</div>
+    <div class="post-actions">
+      <div class="actions-left">
+        <button onclick="likePost(1)">❤️</button>
+        <button>💬</button>
+        <button>📤</button>
+      </div>
+      <button>🔖</button>
+    </div>
+    <div class="likes" id="likes1">0 likes</div>
+    <div class="caption"><b>creator_x</b> YouTube style short video 🚀</div>
+    <div class="time">10 minutes ago</div>
+  </div>
+
+</div>
+
+<!-- Bottom Navigation -->
+<div class="nav">
+  <button>🏠</button>
+  <button>➕</button>
+  <button>💬</button>
+  <button onclick="location.href='/inder.html'">👤</button>
+</div>
+
+<script>
+let likeCounts=[0,0];
+
+function likePost(index){
+  likeCounts[index]++;
+  document.getElementById("likes"+index).innerText =
+    likeCounts[index]+" likes";
+}
+</script>
+
+</body>
+</html>
